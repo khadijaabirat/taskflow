@@ -1,9 +1,10 @@
 <?php 
 declare(strict_types=1);
 namespace app\Entities;
+use DateTime;
 abstract class TeamMember{
 
-protected ?int $id=null;
+protected ?int $idUser=null;
 private string $username;
 protected string $email;
 protected string $passwordhash;
@@ -11,24 +12,24 @@ protected int $teamId;
 protected DateTime $createdAt;
 
 
-public function __construct(string $username,string $email,string $password,int $teamId, DateTime $createdAt)
+public function __construct(string $username,string $email,string $password,int $teamId)
 {
     $this->username=$username;
     $this->email=$email;
     $this->passwordhash=$password;
     $this->teamId=$teamId;
-    $this->createdAt=$createdAt;
+    $this->createdAt=new DateTime;
 }
 
 
     public function getId(): ?int
     {
-        return $this->id;
+        return $this->idUser;
     }
 
     public function setId(int $id): void
     {
-        $this->id = $id;
+        $this->idUser = $id;
     }
 
     public function getUsername(): string

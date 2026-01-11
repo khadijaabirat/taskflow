@@ -9,7 +9,7 @@ class Database
  private static ?PDO $instance = null;
  private function __construct(){}
  private function __clone(){}
- private function __wakeup(){}
+ public function __wakeup(){}
     public static function getInstance(): PDO {
         if (self::$instance === null) {
             $host = 'localhost';
